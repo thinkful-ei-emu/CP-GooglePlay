@@ -44,7 +44,15 @@ describe('GET /apps', () => {
       .get('/apps?sort=rating')
       .expect(200)
       .expect(res =>{
-        expect(res.body[0]).to.eql(sortedByRatingFirstElement);
+        let inCorrectOrder=true;
+        let i=1;
+        while(inCorrectOrder && i<res.body.length){
+          if(res.body[i-1]['Rating']<res.body[i]['Rating']){
+            inCorrectOrder=false;
+          }
+          i++;
+        }
+        expect(inCorrectOrder);
       });
   });
 
