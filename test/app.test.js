@@ -52,7 +52,7 @@ describe('GET /apps', () => {
           }
           i++;
         }
-        expect(inCorrectOrder);
+        expect(inCorrectOrder).to.be.true;
       });
   });
 
