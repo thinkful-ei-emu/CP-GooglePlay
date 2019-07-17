@@ -7,7 +7,7 @@ const playstore=require('./playstore.js');
 app.get('/apps',(req,res)=>{
   const {sort, genres} =req.query;
   if(!Object.keys(req.query).every(val => ['sort','genres'].includes(val) )){
-    return res.status(400).send('Remove invalid query parameter')
+    return res.status(400).send('Remove invalid query parameter');
   }
   let tempStore=[...playstore];
 
